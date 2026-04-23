@@ -133,6 +133,17 @@ namespace ProyectoDSW_1.Controllers
             return Content(html, "text/html");
         }
 
+        [HttpGet("reporte-hoy")]
+        public IActionResult ReporteHoy()
+        {
+            var pagos = _pagoDAO.ObtenerPagosDeHoy();
+
+            if (pagos == null || !pagos.Any())
+                return NotFound(new { mensaje = "No hay pagos registrados hoy" });
+
+            return Ok(pagos);
+        }
+
 
 
     }

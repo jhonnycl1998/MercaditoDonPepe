@@ -9,6 +9,7 @@ namespace ProyectoDSW_1.Repositories.Interfaces
         Pago? ObtenerPorDeudaId(int deudaId);
         Pago RegistrarPago(Pago pago);
         bool Eliminar(int id);
+        IEnumerable<Pago> ObtenerPagosDeHoy();
 
     }
 }

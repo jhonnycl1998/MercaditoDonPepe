@@ -12,7 +12,7 @@ namespace ProyectoDSW_1.Models
         public string usuario { get; set; }
 
         [Display(Name ="Contraseña")]
-        public string contraseñaHash { get; set; }
+        public string contrasenaHash { get; set; }
 
         public int RolId { get; set; }
         public Rol? Rol { get; set; }

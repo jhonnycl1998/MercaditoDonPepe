@@ -21,6 +21,18 @@ namespace ProyectoDSW_1.Repositories.DAO
                 .ToList();
         }
 
+        public IEnumerable<Pago> ObtenerPagosDeHoy()
+        {
+            return _context.Pagos
+                .Include(p => p.Deuda)
+                    .ThenInclude(d => d.Tienda)
+                        .ThenInclude(t => t.Dueno)
+                .Include(p => p.Deuda)
+                    .ThenInclude(d => d.Servicio)
+                .Where(p => p.FechaPago.Date == DateTime.Now.Date)
+                .ToList();
+        }
+
 
 
         public Pago? ObtenerPorId(int id)
@@ -97,6 +109,8 @@ namespace ProyectoDSW_1.Repositories.DAO
 
             return true;
         }
+
+
 
 
     }

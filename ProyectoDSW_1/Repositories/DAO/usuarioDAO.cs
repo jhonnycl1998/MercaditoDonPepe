@@ -50,5 +50,11 @@ namespace ProyectoDSW_1.Repositories.DAO
                 _context.SaveChanges();
             }
         }
+
+        public Usuario? ObtenerPorUsuario(string usuario)
+        {
+            return _context.Usuarios
+                .FirstOrDefault(u => u.usuario == usuario);
+        }
     }
 }

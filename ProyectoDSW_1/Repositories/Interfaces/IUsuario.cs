@@ -9,5 +9,6 @@ namespace ProyectoDSW_1.Repositories.Interfaces
         void Registrar(Usuario usuario);
         void Actualizar(Usuario usuario);
         void Eliminar(int id);
+        Usuario? ObtenerPorUsuario(string usuario);
     }
 }
