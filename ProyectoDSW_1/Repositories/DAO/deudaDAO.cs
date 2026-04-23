@@ -1,4 +1,5 @@
-﻿using ProyectoDSW_1.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectoDSW_1.Data;
 using ProyectoDSW_1.Models;
 using ProyectoDSW_1.Repositories.Interfaces;
 
@@ -53,6 +54,16 @@ namespace ProyectoDSW_1.Repositories.DAO
                 d.FechaFacturacion.Month == fechaFacturacion.Month &&
                 d.FechaFacturacion.Year == fechaFacturacion.Year);
         }
+
+        public IEnumerable<Deuda> ObtenerPendientesPorDueno(int duenoId)
+        {
+            return _context.Deudas
+                .Include(d => d.Tienda)
+                .Include(d => d.Servicio)
+                .Where(d => d.Estado == "Pendiente" && d.Tienda.DuenoId == duenoId)
+                .ToList();
+        }
+
 
     }
 }

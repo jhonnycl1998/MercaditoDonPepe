@@ -31,7 +31,7 @@ namespace ProyectoDSW_1.Models
 
         [Display(Name = "Servicio")]
         public int ServicioId { get; set; }
-        public Servicio? Servicios { get; set; }
+        public Servicio? Servicio { get; set; }
 
         public Pago? Pago { get; set; }
 

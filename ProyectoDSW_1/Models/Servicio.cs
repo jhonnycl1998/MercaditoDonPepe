@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ProyectoDSW_1.Models
 {
@@ -22,6 +23,7 @@ namespace ProyectoDSW_1.Models
         public int DiaCorte { get; set; }
 
         // Un servicio puede tener muchas deudas
+        [JsonIgnore]
         public List<Deuda> Deudas { get; set; } = new ();
     }
 }

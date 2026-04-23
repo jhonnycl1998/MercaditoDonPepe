@@ -21,10 +21,16 @@ namespace ProyectoDSW_1.Repositories.DAO
                 .ToList();
         }
 
+
+
         public Pago? ObtenerPorId(int id)
         {
             return _context.Pagos
                 .Include(p => p.Deuda)
+                    .ThenInclude(d => d.Tienda)
+                        .ThenInclude(t => t.Dueno)
+                .Include(p => p.Deuda)
+                    .ThenInclude(d => d.Servicio)
                 .FirstOrDefault(p => p.Id == id);
         }
 
@@ -91,5 +97,7 @@ namespace ProyectoDSW_1.Repositories.DAO
 
             return true;
         }
+
+
     }
 }

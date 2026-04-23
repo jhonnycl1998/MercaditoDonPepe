@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ProyectoDSW_1.Models
 {
@@ -20,6 +21,7 @@ namespace ProyectoDSW_1.Models
         public int? DuenoId { get; set; }
         public Dueno? Dueno { get; set; }
 
+        [JsonIgnore]
         public List<Deuda> Deudas { get; set; } = new();
 
     }

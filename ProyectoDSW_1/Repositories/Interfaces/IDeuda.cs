@@ -10,5 +10,7 @@ namespace ProyectoDSW_1.Repositories.Interfaces
         void Actualizar(Deuda deuda);
         void Eliminar(int id);
         bool ExisteDeuda(int tiendaId, int servicioId, DateTime fechaFacturacion);
+
+        IEnumerable<Deuda> ObtenerPendientesPorDueno(int duenoId);
     }
 }

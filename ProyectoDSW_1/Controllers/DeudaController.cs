@@ -52,5 +52,15 @@ namespace ProyectoDSW_1.Controllers
             _deudaDao.Eliminar(id);
             return Ok();
         }
+
+
+        [HttpGet("dueno/{duenoId}")]
+        public IActionResult ObtenerPendientesPorDueno(int duenoId)
+        {
+            var deudas = _deudaDao.ObtenerPendientesPorDueno(duenoId);
+            if (deudas == null || !deudas.Any())
+                return NotFound(new { mensaje = "No hay deudas pendientes para ese dueño" });
+            return Ok(deudas);
+        }
     }
 }
