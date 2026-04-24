@@ -19,6 +19,7 @@ namespace ProyectoDSW_1.Models
         public double costoAlquiler { get; set; }
 
         public int? DuenoId { get; set; }
+        [JsonIgnore]
         public Dueno? Dueno { get; set; }
 
         [JsonIgnore]

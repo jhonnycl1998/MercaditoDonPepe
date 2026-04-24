@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ProyectoDSW_1.Models
 {
@@ -25,6 +26,7 @@ namespace ProyectoDSW_1.Models
 
         public int UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
+
 
         public List<Tienda> Tiendas { get; set; } = new();
 

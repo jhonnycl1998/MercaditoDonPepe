@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoDSW_1.Data
-{
+{ 
     public class APPDbContext : DbContext
     {
         public APPDbContext(DbContextOptions<APPDbContext> options) : base(options)
@@ -19,6 +19,7 @@ namespace ProyectoDSW_1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Damos indicaciones adicionales a la relacion entre pago y deuda
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Pago>()

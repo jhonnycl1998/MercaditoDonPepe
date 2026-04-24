@@ -1,4 +1,5 @@
-﻿using ProyectoDSW_1.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectoDSW_1.Data;
 using ProyectoDSW_1.Models;
 using ProyectoDSW_1.Repositories.Interfaces;
 
@@ -15,12 +16,16 @@ namespace ProyectoDSW_1.Repositories.DAO
 
         public IEnumerable<Dueno> Listar()
         {
-            return _context.Duenos.ToList();
+            return _context.Duenos
+                .Include(d => d.Tiendas)
+                .ToList();
         }
 
         public Dueno? Buscar(int id)
         {
-            return _context.Duenos.Find(id);
+            return _context.Duenos
+                .Include(d => d.Tiendas)
+                .FirstOrDefault(d => d.Id == id);
         }
 
         public void Registrar(Dueno dueno)
